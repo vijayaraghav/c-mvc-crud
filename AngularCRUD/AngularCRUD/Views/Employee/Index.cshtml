@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+  <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/angular.js"></script>
+    <script src="~/scripts/angular.min.js"></script>
+    <script src="~/Js/Employee.js"></script>
+    <title>Index</title>
+    <style>
+        .btn-space {  
+margin-left: -5%;  
+background-color:#5cb85c;
+color:white;
+font-size: large;  
+}  
+    </style>
+</head>
+<body>
+    <div ng-app="myapp">
+        <div ng-controller="myCtrl" ng-init="getAllData()" >
+            <h2 >List of Employees</h2>
+            <div >
+                <table cellpadding="12" class="table table-bordered table-hover">
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Age
+                        </th>
+                        <th>
+                            City
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                    <tr ng-repeat="emp in employees">
+                        <td>
+                            {{emp.emp_id}}
+                        </td>
+                        <td>
+                            {{emp.emp_name}}
+                        </td>
+                        <td>
+                            {{emp.emp_age}}
+                        </td>
+                        <td>
+                            {{emp.emp_city}}
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-warning" value="Update" ng-click="UpdateData(emp)" />
+                            <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteData(emp)" />  
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-horizontal" role="form">
+                    <div class="container">
+                        <div class="row">
+                            <h2>
+                                <span id="spn">Add New Employee</span>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class ="col-md-4 control-label">Name:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="inputText" placeholder="Name" ng-model="empName" />
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Age:</label> 
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="inputAge" placeholder="Age" ng-model="empAge" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">City:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="inputCity" placeholder="City" ng-model="empCity" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-4">
+
+                                <input type="button" id="btnSave" class="form-control btn-space" value="Submit" ng-click="InsertData()" />  
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </div> 
+
+
+
+    </div>
+</body>
+</html>
